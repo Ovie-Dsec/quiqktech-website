@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiqk Technologies Solution — Network, Connectivity & IT Support in Abuja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand:#7A0A84;
+    --brand-deep:#680570;
+    --brand-dark:#4A0552;
+    --ink:#170318;
+    --ink-2:#2B0930;
+    --ink-3:#3A0F42;
+    --paper:#F8F4F9;
+    --paper-2:#FFFFFF;
+    --ink-text:#1C0620;
+    --light-text:#F3ECF5;
+    --muted:#BBA0C4;
+    --muted-2:#6E5A75;
+    --gold:#E7A93E;
+    --gold-2:#F4C874;
+    --lilac:#C86FD1;
+    --line-dark:rgba(243,236,245,0.14);
+    --line-light:rgba(28,6,32,0.10);
+    --display:'Space Grotesk',sans-serif;
+    --body:'Inter',sans-serif;
+    --mono:'JetBrains Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--body);
+    background:var(--paper);
+    color:var(--ink-text);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  @media (max-width:640px){.wrap{padding:0 20px;}}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    font-weight:500;
+  }
+  .eyebrow .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 0 3px rgba(231,169,62,0.20);
+    flex:none;
+    animation:pulse-dot 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse-dot{
+    0%,100%{opacity:1;transform:scale(1);}
+    50%{opacity:.55;transform:scale(0.82);}
+  }
+  h1,h2,h3,h4{font-family:var(--display);line-height:1.1;letter-spacing:-0.01em;}
+
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(23,3,24,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 0;
+  }
+  .brand{
+    display:flex;align-items:center;gap:11px;
+    font-family:var(--display);font-weight:700;font-size:18.5px;
+    color:var(--light-text);
+  }
+  .brand-mark{
+    width:38px;height:38px;border-radius:9px;
+    background:var(--brand-deep);
+    display:flex;align-items:center;justify-content:center;
+    flex:none;overflow:hidden;
+    box-shadow:0 4px 14px -4px rgba(104,5,112,0.7);
+  }
+  .brand-mark img{width:68%;height:68%;object-fit:contain;}
+  nav ul{list-style:none;display:flex;gap:34px;}
+  nav ul a{
+    font-size:14.5px;color:var(--muted);font-weight:500;
+    transition:color .2s;
+  }
+  nav ul a:hover{color:var(--light-text);}
+  .nav-actions{display:flex;align-items:center;gap:20px;}
+  .btn{
+    font-family:var(--body);font-weight:600;font-size:14.5px;
+    padding:11px 22px;border-radius:7px;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    border:1px solid transparent;
+    cursor:pointer;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,var(--brand),var(--brand-deep));
+    color:#FBF3FC;
+  }
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 26px -8px rgba(122,10,132,0.65);}
+  .btn-ghost{
+    color:var(--light-text);border-color:var(--line-dark);
+  }
+  .btn-ghost:hover{border-color:var(--muted);}
+  .btn-dark{background:var(--ink);color:var(--light-text);}
+  .btn-dark:hover{transform:translateY(-1px);box-shadow:0 10px 24px -10px rgba(23,3,24,0.5);}
+  .menu-toggle{display:none;background:none;border:none;color:var(--light-text);font-size:22px;cursor:pointer;}
+
+  .hero{
+    background:radial-gradient(120% 140% at 14% -10%, #3A0F42 0%, var(--ink) 55%, #0C010D 100%);
+    color:var(--light-text);
+    padding:96px 0 64px;
+    position:relative;overflow:hidden;
+    border-bottom:1px solid var(--line-dark);
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;
+    position:relative;z-index:1;
+  }
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:48px;}}
+  .hero .eyebrow{color:var(--gold-2);margin-bottom:22px;}
+  .hero h1{
+    font-size:clamp(2.35rem,4.4vw,3.65rem);
+    font-weight:600;
+    margin-bottom:22px;
+  }
+  .hero h1 em{font-style:normal;color:var(--gold);}
+  .hero p.lead{
+    font-size:17px;color:var(--muted);max-width:46ch;margin-bottom:34px;
+  }
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px;}
+  .hero-stats{
+    display:flex;gap:36px;flex-wrap:wrap;
+    padding-top:28px;border-top:1px solid var(--line-dark);
+  }
+  .hero-stats div strong{
+    display:block;font-family:var(--display);font-size:26px;color:var(--light-text);font-weight:700;
+  }
+  .hero-stats div span{font-size:12.5px;color:var(--muted);font-family:var(--mono);letter-spacing:.03em;}
+
+  .diagram{
+    position:relative;
+    background:linear-gradient(180deg,rgba(255,255,255,0.035),rgba(255,255,255,0));
+    border:1px solid var(--line-dark);border-radius:16px;padding:26px 20px 18px;
+  }
+  .diagram svg{width:100%;height:auto;display:block;}
+  .diagram-caption{
+    display:flex;justify-content:space-between;align-items:center;
+    margin-top:14px;padding-top:14px;border-top:1px solid var(--line-dark);
+    font-family:var(--mono);font-size:11.5px;color:var(--muted);letter-spacing:.02em;
+  }
+  .diagram-caption .live{color:var(--gold-2);display:flex;align-items:center;gap:6px;}
+  .diagram-caption .live::before{
+    content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);
+    animation:pulse-dot 2.4s ease-in-out infinite;
+  }
+  .path-line{stroke-dasharray:6 6;animation:dash 1.8s linear infinite;}
+  @keyframes dash{to{stroke-dashoffset:-24;}}
+
+  section{padding:92px 0;}
+  .section-head{max-width:640px;margin-bottom:52px;}
+  .section-head .eyebrow{color:var(--brand-deep);margin-bottom:16px;}
+  .section-head h2{font-size:clamp(1.7rem,2.6vw,2.35rem);margin-bottom:14px;}
+  .section-head p{color:var(--muted-2);font-size:15.5px;}
+  .on-dark .section-head .eyebrow{color:var(--gold-2);}
+
+  .services-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line-light);border:1px solid var(--line-light);border-radius:14px;overflow:hidden;
+  }
+  @media (max-width:860px){.services-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.services-grid{grid-template-columns:1fr;}}
+  .service-card{
+    background:var(--paper-2);padding:32px 28px;
+    display:flex;flex-direction:column;gap:14px;
+    transition:background .2s;
+  }
+  .service-card:hover{background:#FBF4FC;}
+  .service-num{font-family:var(--mono);font-size:12px;color:var(--muted-2);letter-spacing:.08em;}
+  .service-card h3{font-size:19px;font-weight:600;}
+  .service-card p{font-size:14.5px;color:var(--muted-2);flex:1;}
+  .service-card .sc-link{
+    font-family:var(--mono);font-size:12.5px;color:var(--brand-deep);font-weight:500;
+    display:inline-flex;align-items:center;gap:6px;
+  }
+
+  .work-strip{
+    display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;scrollbar-width:thin;
+  }
+  .work-card{
+    flex:0 0 300px;border-radius:12px;overflow:hidden;position:relative;
+    height:340px;background:var(--ink-2);
+  }
+  .work-card img,.work-card video{width:100%;height:100%;object-fit:cover;}
+  .work-card .tag{
+    position:absolute;left:14px;bottom:14px;
+    font-family:var(--mono);font-size:11.5px;color:#fff;
+    background:rgba(23,3,24,0.75);padding:6px 11px;border-radius:6px;
+    letter-spacing:.03em;backdrop-filter:blur(3px);
+  }
+  .work-note{
+    margin-top:22px;font-family:var(--mono);font-size:12.5px;color:var(--muted-2);
+  }
+
+  .recruit{background:var(--ink);color:var(--light-text);}
+  .recruit .section-head p{color:var(--muted);}
+  .recruit-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:56px;}
+  @media (max-width:860px){.recruit-grid{grid-template-columns:1fr;}}
+  .recruit-points{display:grid;grid-template-columns:1fr 1fr;gap:22px 28px;}
+  .rp{border-left:2px solid var(--gold);padding-left:16px;}
+  .rp h4{font-size:15.5px;margin-bottom:6px;font-weight:600;}
+  .rp p{font-size:13.8px;color:var(--muted);}
+  .recruit-process{
+    background:var(--ink-2);border:1px solid var(--line-dark);border-radius:14px;padding:30px;
+  }
+  .rprocess-step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line-dark);}
+  .rprocess-step:last-child{border-bottom:none;}
+  .rprocess-step .n{font-family:var(--mono);color:var(--gold);font-size:13px;flex:none;width:28px;}
+  .rprocess-step h4{font-size:14.5px;margin-bottom:4px;}
+  .rprocess-step p{font-size:13.3px;color:var(--muted);}
+  .roles-wrap h4{
+    font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:18px;font-weight:500;
+  }
+  .role-pills{display:flex;flex-wrap:wrap;gap:10px;}
+  .role-pill{
+    font-size:13.3px;padding:8px 15px;border:1px solid var(--line-dark);border-radius:100px;color:var(--light-text);
+  }
+
+  .why-grid{display:grid;grid-template-columns:1fr 0.85fr;gap:56px;align-items:center;}
+  @media (max-width:860px){.why-grid{grid-template-columns:1fr;}}
+  .why-list{display:flex;flex-direction:column;gap:22px;margin:28px 0 34px;}
+  .why-item{display:flex;gap:14px;align-items:flex-start;}
+  .why-item .check{
+    width:24px;height:24px;border-radius:50%;background:#EFE0F2;color:var(--brand-deep);
+    display:flex;align-items:center;justify-content:center;flex:none;font-size:13px;font-weight:700;
+  }
+  .why-item h4{font-size:15.5px;margin-bottom:3px;font-weight:600;}
+  .why-item p{font-size:13.8px;color:var(--muted-2);}
+  .why-photo{border-radius:16px;overflow:hidden;border:1px solid var(--line-light);}
+
+  .cta{
+    background:linear-gradient(120deg,#2B0930,#4A0552);
+    color:var(--light-text);border-radius:20px;
+    padding:64px 48px;text-align:center;margin:0 32px;
+    max-width:1116px;margin:0 auto;
+    position:relative;overflow:hidden;
+  }
+  @media (max-width:640px){.cta{padding:48px 26px;}}
+  .cta h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:14px;}
+  .cta p{color:var(--muted);max-width:44ch;margin:0 auto 30px;font-size:15.5px;}
+
+  footer{background:var(--ink);color:var(--muted);padding:56px 0 30px;border-top:1px solid var(--line-dark);}
+  .footer-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:36px;border-bottom:1px solid var(--line-dark);margin-bottom:24px;}
+  .footer-brand .brand{margin-bottom:14px;}
+  .footer-brand p{font-size:13.8px;max-width:32ch;}
+  .footer-cols{display:flex;gap:60px;flex-wrap:wrap;}
+  .footer-col h4{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--light-text);margin-bottom:14px;}
+  .footer-col a,.footer-col p{display:block;font-size:13.8px;margin-bottom:9px;color:var(--muted);}
+  .footer-col a:hover{color:var(--light-text);}
+  .footer-bottom{display:flex;justify-content:space-between;font-size:12.5px;flex-wrap:wrap;gap:10px;font-family:var(--mono);}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important;}
+  }
+  @media (max-width:840px){
+    nav ul{display:none;}
+    .menu-toggle{display:block;}
+    .nav-actions .btn-ghost{display:none;}
+  }
+  a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><img src="Quiqk.png" alt="Quiqk Technologies Solution"></span>
+      Quiqk Technologies Solution
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Our Work</a></li>
+        <li><a href="#recruitment">Recruitment</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a href="contact.html" class="btn btn-ghost">Contact</a>
+      <a href="contact.html" class="btn btn-primary">Get Started</a>
+      <button class="menu-toggle" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="reveal in">
+      <span class="eyebrow"><span class="dot"></span>ABUJA, NIGERIA · IT INFRASTRUCTURE &amp; CONNECTIVITY</span>
+      <h1>Your network, <em>wired right</em> — and kept running.</h1>
+      <p class="lead">We design, install and maintain the connectivity that businesses and homes in Abuja run on — from structured cabling and Starlink deployments to full-time IT support and technical staffing.</p>
+      <div class="hero-ctas">
+        <a href="contact.html" class="btn btn-primary">Start Your Project</a>
+        <a href="#services" class="btn btn-ghost">Our Services →</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>24/7</strong><span>SUPPORT LINE</span></div>
+        <div><strong>5</strong><span>CORE SERVICES</span></div>
+        <div><strong>NG</strong><span>ABUJA &amp; BEYOND</span></div>
+      </div>
+    </div>
+
+    <div class="reveal in diagram" aria-hidden="false">
+      <svg viewBox="0 0 460 320" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(365,10)">
+          <circle cx="0" cy="0" r="4" fill="#E7A93E"/>
+          <rect x="-14" y="-3" width="10" height="6" rx="1" fill="none" stroke="#BBA0C4" stroke-width="1.2"/>
+          <rect x="4" y="-3" width="10" height="6" rx="1" fill="none" stroke="#BBA0C4" stroke-width="1.2"/>
+        </g>
+        <text x="330" y="2" font-family="JetBrains Mono" font-size="9" fill="#BBA0C4">STARLINK</text>
+        <line x1="380" y1="14" x2="380" y2="40" stroke="#E7A93E" stroke-width="1.4" class="path-line"/>
+        <g transform="translate(380,40)">
+          <path d="M -18 10 A 20 20 0 0 1 18 10" fill="none" stroke="#C86FD1" stroke-width="2.2"/>
+          <line x1="0" y1="10" x2="0" y2="-6" stroke="#C86FD1" stroke-width="2"/>
+          <circle cx="0" cy="-6" r="2.4" fill="#C86FD1"/>
+          <line x1="0" y1="10" x2="0" y2="26" stroke="#C86FD1" stroke-width="2"/>
+        </g>
+        <text x="392" y="34" font-family="JetBrains Mono" font-size="9" fill="#BBA0C4">DISH</text>
+        <path d="M 380 66 L 380 120 L 230 160" fill="none" stroke="#BBA0C4" stroke-width="1.4" class="path-line"/>
+        <g transform="translate(230,160)">
+          <rect x="-26" y="-14" width="52" height="28" rx="6" fill="#2B0930" stroke="#E7A93E" stroke-width="1.4"/>
+          <circle cx="-14" cy="0" r="2" fill="#E7A93E"/>
+          <circle cx="0" cy="0" r="2" fill="#E7A93E"/>
+          <circle cx="14" cy="0" r="2" fill="#E7A93E"/>
+        </g>
+        <text x="196" y="196" font-family="JetBrains Mono" font-size="9" fill="#BBA0C4">OFFICE ROUTER</text>
+        <path d="M 230 174 L 90 210 L 90 244" fill="none" stroke="#BBA0C4" stroke-width="1.2" class="path-line"/>
+        <path d="M 230 174 L 230 244" fill="none" stroke="#BBA0C4" stroke-width="1.2" class="path-line"/>
+        <path d="M 230 174 L 340 210 L 340 244" fill="none" stroke="#BBA0C4" stroke-width="1.2" class="path-line"/>
+        <g transform="translate(90,250)">
+          <rect x="-16" y="-12" width="32" height="20" rx="2" fill="none" stroke="#F3ECF5" stroke-width="1.4"/>
+          <line x1="-8" y1="12" x2="8" y2="12" stroke="#F3ECF5" stroke-width="1.4"/>
+        </g>
+        <text x="62" y="284" font-family="JetBrains Mono" font-size="8.5" fill="#BBA0C4">WORKSTATIONS</text>
+        <g transform="translate(230,250)">
+          <rect x="-13" y="-14" width="26" height="28" rx="2" fill="none" stroke="#F3ECF5" stroke-width="1.4"/>
+          <line x1="-13" y1="-5" x2="13" y2="-5" stroke="#F3ECF5" stroke-width="1"/>
+          <line x1="-13" y1="4" x2="13" y2="4" stroke="#F3ECF5" stroke-width="1"/>
+        </g>
+        <text x="206" y="284" font-family="JetBrains Mono" font-size="8.5" fill="#BBA0C4">SERVER</text>
+        <g transform="translate(340,250)">
+          <rect x="-8" y="-14" width="16" height="26" rx="3" fill="none" stroke="#F3ECF5" stroke-width="1.4"/>
+        </g>
+        <text x="312" y="284" font-family="JetBrains Mono" font-size="8.5" fill="#BBA0C4">MOBILE DEVICES</text>
+        <circle r="3" fill="#E7A93E">
+          <animateMotion dur="2.6s" repeatCount="indefinite" path="M 380 14 L 380 40 L 380 120 L 230 160"/>
+        </circle>
+        <circle r="2.6" fill="#C86FD1">
+          <animateMotion dur="3.2s" repeatCount="indefinite" begin="0.5s" path="M 230 168 L 90 210 L 90 244"/>
+        </circle>
+        <circle r="2.6" fill="#C86FD1">
+          <animateMotion dur="3.2s" repeatCount="indefinite" begin="1s" path="M 230 168 L 230 244"/>
+        </circle>
+        <circle r="2.6" fill="#C86FD1">
+          <animateMotion dur="3.2s" repeatCount="indefinite" begin="1.5s" path="M 230 168 L 340 210 L 340 244"/>
+        </circle>
+      </svg>
+      <div class="diagram-caption">
+        <span class="live">SIGNAL ACTIVE</span>
+        <span>SATELLITE → DISH → OFFICE NETWORK</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span>SERVICES</span>
+      <h2>Comprehensive IT solutions, built for how Abuja works.</h2>
+      <p>From the cable in the wall to the person on your helpdesk — we cover the full stack of connectivity and technology your business depends on.</p>
+    </div>
+
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <span class="service-num">01 / NETWORKING</span>
+        <h3>Network Configuration</h3>
+        <p>Professional network setup and optimization for seamless, reliable connectivity across your organization.</p>
+        <a href="contact.html" class="sc-link">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-num">02 / CONNECTIVITY</span>
+        <h3>Internet Services</h3>
+        <p>Reliable internet solutions — including Starlink deployment — tailored to your business requirements.</p>
+        <a href="contact.html" class="sc-link">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-num">03 / RELIABILITY</span>
+        <h3>Support &amp; Maintenance</h3>
+        <p>Comprehensive technical support and proactive maintenance to keep your systems running smoothly, day and night.</p>
+        <a href="contact.html" class="sc-link">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-num">04 / STRATEGY</span>
+        <h3>Customized Tech Solutions</h3>
+        <p>Bespoke technology solutions designed specifically for your unique business challenges and goals.</p>
+        <a href="contact.html" class="sc-link">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-num">05 / PEOPLE</span>
+        <h3>IT Recruitment &amp; Staffing</h3>
+        <p>We source, assess and match qualified IT professionals to your team — locally and remotely.</p>
+        <a href="contact.html" class="sc-link">Learn more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work" style="background:var(--paper-2);border-top:1px solid var(--line-light);border-bottom:1px solid var(--line-light);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span>OUR WORK</span>
+      <h2>Real installs, real clients, real Abuja.</h2>
+      <p>From structured cabling to Starlink deployments, here's a look at projects delivered by our team on the ground.</p>
+    </div>
+
+    <div class="work-strip reveal">
+      <div class="work-card">
+        <img src="Images/20220630_123131.jpg" alt="Network infrastructure setup">
+        <span class="tag">Network Infrastructure</span>
+      </div>
+      <div class="work-card">
+        <video autoplay muted loop playsinline>
+          <source src="Videos/New%20starlink%20Installation.mp4" type="video/mp4">
+        </video>
+        <span class="tag">Starlink · New Setup</span>
+      </div>
+      <div class="work-card">
+        <img src="Images/IMG_20190806_120501_8.jpg" alt="Server configuration">
+        <span class="tag">Server Configuration</span>
+      </div>
+      <div class="work-card">
+        <img src="Images/IMG_20230411_140850_013.jpg" alt="On-site technical support">
+        <span class="tag">Technical Support</span>
+      </div>
+      <div class="work-card">
+        <video autoplay muted loop playsinline>
+          <source src="Videos/Starlink%20installation.mp4" type="video/mp4">
+        </video>
+        <span class="tag">Starlink · Process</span>
+      </div>
+      <div class="work-card">
+        <img src="Images/LRM_20210901_161535.jpg" alt="Structured cabling">
+        <span class="tag">Structured Cabling</span>
+      </div>
+      <div class="work-card">
+        <img src="Images/Picsart_23-05-05_14-23-09-121~3.jpg" alt="Team collaboration">
+        <span class="tag">Team Collaboration</span>
+      </div>
+    </div>
+    <p class="work-note">↔ Scroll to see more · All projects completed by the Quiqk Technologies Solution team in Abuja, Nigeria.</p>
+  </div>
+</section>
+
+<section class="recruit" id="recruitment">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span>IT RECRUITMENT &amp; STAFFING</span>
+      <h2>Finding the right IT talent, without the guesswork.</h2>
+      <p>We help organizations find, research and refine IT applicants and candidates for any role in the technology department — technical fit and cultural fit, together.</p>
+    </div>
+
+    <div class="recruit-grid">
+      <div class="recruit-points reveal">
+        <div class="rp">
+          <h4>Comprehensive Candidate Research</h4>
+          <p>Thorough background checks, technical assessments, and cultural fit evaluations.</p>
+        </div>
+        <div class="rp">
+          <h4>Specialized IT Expertise</h4>
+          <p>Deep understanding of IT roles, technologies, and industry requirements.</p>
+        </div>
+        <div class="rp">
+          <h4>Fast &amp; Efficient Process</h4>
+          <p>A streamlined recruitment process to fill your IT positions quickly.</p>
+        </div>
+        <div class="rp">
+          <h4>Local &amp; Remote Talent Pool</h4>
+          <p>Access to qualified IT professionals across Abuja and Nigeria.</p>
+        </div>
+      </div>
+
+      <div class="recruit-process reveal">
+        <div class="rprocess-step">
+          <span class="n">01</span>
+          <div><h4>Candidate Sourcing</h4><p>We actively search and identify top IT talent through our network and proven sourcing strategies.</p></div>
+        </div>
+        <div class="rprocess-step">
+          <span class="n">02</span>
+          <div><h4>Skills Assessment</h4><p>Comprehensive technical evaluations to confirm candidates meet your requirements and skill level.</p></div>
+        </div>
+        <div class="rprocess-step">
+          <span class="n">03</span>
+          <div><h4>Cultural Fit Matching</h4><p>Beyond technical skills, we ensure candidates align with your team and company culture.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="roles-wrap reveal">
+      <h4>Roles we recruit for</h4>
+      <div class="role-pills">
+        <span class="role-pill">Software Developers</span>
+        <span class="role-pill">System Administrators</span>
+        <span class="role-pill">Network Engineers</span>
+        <span class="role-pill">Cybersecurity Specialists</span>
+        <span class="role-pill">Database Administrators</span>
+        <span class="role-pill">DevOps Engineers</span>
+        <span class="role-pill">IT Project Managers</span>
+        <span class="role-pill">Technical Support</span>
+        <span class="role-pill">Cloud Architects</span>
+        <span class="role-pill">Data Analysts</span>
+        <span class="role-pill">UI/UX Designers</span>
+        <span class="role-pill">Quality Assurance</span>
+      </div>
+      <div style="margin-top:34px;">
+        <a href="contact.html" class="btn btn-primary">Discuss Your IT Staffing Needs</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap why-grid">
+    <div class="reveal">
+      <span class="eyebrow"><span class="dot"></span>WHY QUIQK</span>
+      <h2 style="font-size:clamp(1.6rem,2.6vw,2.2rem);margin:16px 0 6px;">Years in the field, not just the office.</h2>
+      <p style="color:var(--muted-2);font-size:15px;max-width:48ch;">We understand the unique challenges businesses face in Abuja. Our certified team delivers reliable, scalable and cost-effective technology — and sticks around after the install.</p>
+
+      <div class="why-list">
+        <div class="why-item">
+          <span class="check">✓</span>
+          <div><h4>24/7 Technical Support</h4><p>A team on call, not just a ticket queue.</p></div>
+        </div>
+        <div class="why-item">
+          <span class="check">✓</span>
+          <div><h4>Customized Solutions for Every Budget</h4><p>Enterprise-grade thinking, scaled to fit your business.</p></div>
+        </div>
+        <div class="why-item">
+          <span class="check">✓</span>
+          <div><h4>Certified &amp; Experienced Professionals</h4><p>Trained technicians who've done the install before.</p></div>
+        </div>
+      </div>
+      <a href="contact.html" class="btn btn-dark">Talk to Our Team</a>
+    </div>
+    <div class="why-photo reveal">
+      <img src="https://static.wixstatic.com/media/c57f2f_e392ad7fc7fc4865919c4a34ab7ec0cb~mv2.png/v1/fill/w_600,h_600,al_c,lg_1,q_85,enc_auto/c57f2f_e392ad7fc7fc4865919c4a34ab7ec0cb~mv2.png" alt="IT professionals working on a technology solution">
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="cta reveal">
+      <span class="eyebrow" style="color:var(--gold-2);"><span class="dot"></span>LET'S BUILD</span>
+      <h2 style="margin-top:16px;">Ready to transform your technology?</h2>
+      <p>Contact us today to discuss your IT needs and discover how we can help your business thrive in the digital age.</p>
+      <a href="contact.html" class="btn btn-primary">Get Free Consultation</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand"><span class="brand-mark"><img src="Quiqk.png" alt="Quiqk Technologies Solution"></span> Quiqk Technologies Solution</div>
+        <p>Professional IT consulting, connectivity and staffing solutions for businesses in Abuja and beyond.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:+2348067874004">+234 806 787 4004</a>
+          <a href="mailto:projects@quiqktech.com">projects@quiqktech.com</a>
+          <p>Abuja, Nigeria</p>
+          <a href="https://instagram.com/quiqk_tech_solution" target="_blank">@quiqk_tech_solution</a>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="#services">Services</a>
+          <a href="#work">Our Work</a>
+          <a href="#recruitment">Recruitment</a>
+          <a href="#why">Why Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 QUIQK TECHNOLOGIES SOLUTION. ALL RIGHTS RESERVED.</span>
+      <span>SIGNAL ACTIVE · ABUJA, NG</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const navUl = document.querySelector('nav ul');
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      const open = navUl.style.display === 'flex';
+      navUl.style.display = open ? 'none' : 'flex';
+      navUl.style.flexDirection = 'column';
+      navUl.style.position = 'absolute';
+      navUl.style.top = '64px';
+      navUl.style.left = '0';
+      navUl.style.right = '0';
+      navUl.style.background = '#170318';
+      navUl.style.padding = '20px 32px';
+      navUl.style.gap = '18px';
+    });
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
